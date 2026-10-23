@@ -50,8 +50,10 @@ function session(req, cfg) {
   } catch { return null; }
 }
 function originCheck(req) {
-  const allowed = process.env.NODE_ENV === 'test' ? 'http://127.0.0.1:4174' : 'https://entendo-seu-desafio.vercel.app';
-  if (req.headers.origin !== allowed) throw error(403, 'Origem da solicitação não permitida.');
+  const allowed = process.env.NODE_ENV === 'test'
+    ? ['http://127.0.0.1:4174']
+    : ['https://entendo-seu-desafio.vercel.app', 'https://leanoptimus.com.br', 'https://www.leanoptimus.com.br'];
+  if (!allowed.includes(req.headers.origin)) throw error(403, 'Origem da solicitação não permitida.');
 }
 function authenticated(req, cfg, mutate = false) {
   const s = session(req, cfg);
