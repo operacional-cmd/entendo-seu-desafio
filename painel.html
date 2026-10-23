@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Respostas — Lean Optimus</title><link rel="stylesheet" href="/painel.css"><script src="/painel.js" defer></script></head>
+<body>
+<div id="login-view" class="login-view">
+  <div class="login-card">
+    <div class="logo-frame"><img src="/logo.png" width="1264" height="843" alt="Lean Optimus"></div>
+    <span class="eyebrow">ACESSO DA EQUIPE</span>
+    <h1>Os desafios chegam.<br><span>O próximo passo é nosso.</span></h1>
+    <p class="muted">Entre para acompanhar as respostas e organizar cada conversa.</p>
+    <form id="login-form">
+      <label for="password">Senha de acesso</label>
+      <div class="password-field"><input id="password" type="password" autocomplete="current-password" required maxlength="200"><button id="show-password" type="button" aria-controls="password" aria-pressed="false">Mostrar</button></div>
+      <p id="login-error" class="error" role="alert" hidden></p>
+      <button class="primary full" id="login-button" type="submit">Entrar no painel <span aria-hidden="true">↗</span></button>
+    </form>
+    <div class="private-note"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>Acesso restrito à equipe Lean Optimus.</span></div>
+  </div>
+</div>
+<div id="dashboard" hidden>
+  <header class="app-header"><div class="identity"><span class="wordmark">lean<span>optimus</span><i aria-hidden="true">↗</i></span><span class="divider"></span><span class="header-label">Painel de respostas</span></div><div class="header-actions"><span class="private-badge"><span aria-hidden="true">●</span> Acesso privado</span><button class="text-button" id="logout">Sair</button></div></header>
+  <main class="workspace">
+    <div class="page-heading"><div><span class="eyebrow">ENTENDER. ALINHAR. EVOLUIR.</span><h1>Cada resposta,<br class="mobile-only"> uma nova conversa.</h1><p class="muted">Conheça os desafios de quem quer dar o próximo passo com a Lean Optimus.</p></div><button id="refresh" class="secondary"><span aria-hidden="true">↻</span> Atualizar</button></div>
+    <p id="page-error" class="error banner" role="alert" hidden></p>
+    <section class="metrics" aria-label="Resumo das respostas carregadas"><div class="metric"><span>Respostas carregadas</span><strong id="count-total">0</strong><small>nesta lista</small></div><div class="metric"><span>Novas conversas</span><strong id="count-new">0</strong><small>aguardando contato</small></div><div class="metric"><span>Em contato</span><strong id="count-progress">0</strong><small>conversas em andamento</small></div><div class="metric"><span>Concluídas</span><strong id="count-done">0</strong><small>atendimento finalizado</small></div></section>
+    <section class="inbox" aria-labelledby="inbox-title"><div class="inbox-top"><div><h2 id="inbox-title">Respostas recebidas</h2><span class="muted" id="result-count" aria-live="polite">Carregando respostas…</span></div><div class="filters"><label class="search-label"><span class="sr-only">Buscar por nome, empresa ou e-mail</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Buscar nome, empresa ou e-mail"></label><label><span class="sr-only">Filtrar por status</span><select id="status-filter"><option value="">Todos os status</option><option>Nova</option><option>Em contato</option><option>Concluída</option></select></label><label><span class="sr-only">Filtrar por segmento</span><select id="sector-filter"><option value="">Todos os segmentos</option><option>Clínicas e saúde</option><option>Escritórios</option><option>Energia solar</option><option>Agro</option><option>Restaurantes</option><option>E-commerce</option><option>Comércio</option><option>Serviços</option><option>Outro</option></select></label></div></div>
+    <div id="loading" class="empty" role="status">Buscando as respostas…</div>
+    <div id="empty" class="empty" hidden><svg viewBox="0 0 48 48" width="46" height="46" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="9" width="34" height="29" rx="4"/><path d="m8 26 10 0 4 6h5l4-6h10M17 17h14M17 22h9"/></svg><h3 id="empty-title">O próximo movimento começa aqui.</h3><p id="empty-copy">As respostas enviadas pelo formulário aparecerão neste painel.</p><a href="/entendo-o-seu-desafio" class="text-link" target="_blank" rel="noopener">Abrir formulário <span aria-hidden="true">↗</span></a></div>
+    <div class="table-scroll" id="table-wrap" hidden><table><thead><tr><th>Empresa / contato</th><th>Segmento</th><th>Recebida em</th><th>Status</th><th><span class="sr-only">Abrir resposta</span></th></tr></thead><tbody id="response-rows"></tbody></table></div>
+    <div class="inbox-footer"><span id="updated-at" class="muted">Atualizando…</span><button id="load-more" class="secondary" hidden>Carregar mais respostas</button></div></section>
+    <footer class="app-footer"><span>Lean Optimus · Consultoria + Tecnologia</span><span>Dados privados · somente para atendimento</span></footer>
+  </main>
+</div>
+<dialog id="response-dialog" aria-labelledby="detail-title"><div class="detail-top"><span class="eyebrow">LEITURA DE CENÁRIO</span><button type="button" class="close-button" id="close-dialog" aria-label="Fechar detalhes">×</button></div><h2 id="detail-title"></h2><p id="detail-meta" class="muted"></p><div id="detail-contacts" class="contact-links"></div><div id="detail-content"></div><form id="update-form"><div class="follow-up"><h3>Próximo movimento</h3><label for="detail-status">Status do atendimento</label><select id="detail-status"><option>Nova</option><option>Em contato</option><option>Concluída</option></select><label for="detail-notes">Anotações internas <span class="optional">(opcional)</span></label><textarea id="detail-notes" maxlength="2000" rows="4" placeholder="Próximo contato, alinhamentos e observações da equipe…"></textarea><p class="note">Estas anotações ficam visíveis apenas para a equipe.</p></div><p id="detail-error" class="error" role="alert" hidden></p><div class="detail-actions"><button class="danger-button" id="delete-response" type="button">Excluir resposta</button><button class="primary" id="save-response" type="submit">Salvar acompanhamento</button></div></form></dialog>
+<dialog id="delete-dialog" aria-labelledby="delete-title"><h2 id="delete-title">Excluir esta resposta?</h2><p>A resposta e as anotações serão removidas definitivamente. Esta ação não pode ser desfeita.</p><div class="detail-actions"><button class="secondary" id="cancel-delete">Cancelar</button><button class="danger-solid" id="confirm-delete">Excluir definitivamente</button></div><p id="delete-error" class="error" role="alert" hidden></p></dialog>
+</body></html>
