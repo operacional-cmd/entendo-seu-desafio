@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "destination": "/entendo-o-seu-desafio", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/entendo-o-seu-desafio", "destination": "/index.html" }
+  ]
+}
