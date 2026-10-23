@@ -1,0 +1,8 @@
+{
+  "name": "lean-optimus-respostas",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": { "test": "node --test server.test.mjs", "build": "node build.mjs" },
+  "dependencies": { "@vercel/blob": "2.8.2" }
+}

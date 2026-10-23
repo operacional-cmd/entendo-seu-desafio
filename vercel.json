@@ -1,13 +1,76 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": null,
-  "outputDirectory": ".",
+  "buildCommand": "node build.mjs",
+  "outputDirectory": "dist",
   "trailingSlash": false,
   "redirects": [
-    { "source": "/", "destination": "/entendo-o-seu-desafio", "permanent": false }
+    {
+      "source": "/",
+      "destination": "/entendo-o-seu-desafio",
+      "permanent": false
+    }
   ],
   "rewrites": [
-    { "source": "/entendo-o-seu-desafio", "destination": "/index.html" }
+    {
+      "source": "/entendo-o-seu-desafio",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/painel",
+      "destination": "/painel.html"
+    }
+  ],
+  "regions": [
+    "gru1"
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+        }
+      ]
+    },
+    {
+      "source": "/painel",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "private, no-store"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/painel.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "private, no-store"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
   ]
 }
