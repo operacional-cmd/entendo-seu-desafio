@@ -1,8 +1,8 @@
-# Entendo o seu desafio — Lean Optimus
+# Entendendo seu desafio — Lean Optimus
 
 Formulário público com recebimento de respostas e painel privado da equipe.
 
-- Formulário: `/entendo-o-seu-desafio`
+- Formulário: `/entendendo-seu-desafio`
 - Painel: `/painel`
 - API: `/_diagnostico/api/server?action=…`
 
@@ -28,5 +28,5 @@ Não há respostas anteriores à ativação do recebimento: a versão inicial er
 
 ## Domínio oficial
 
-O formulário é servido em https://www.leanoptimus.com.br/entendo-o-seu-desafio e o painel em https://www.leanoptimus.com.br/painel. O projeto principal leanoptimus-site encaminha apenas essas rotas e /_diagnostico/* para este projeto. A página inicial e a API de contato do site principal continuam no projeto original. Os arquivos estáticos e a API deste formulário usam /_diagnostico para evitar conflitos. O endereço entendo-seu-desafio.vercel.app continua como origem técnica dessas rotas.
+O formulário é servido em https://www.leanoptimus.com.br/entendendo-seu-desafio e o painel em https://www.leanoptimus.com.br/painel. O projeto principal leanoptimus-site encaminha apenas essas rotas e /_diagnostico/* para este projeto. A página inicial e a API de contato do site principal continuam no projeto original. Os arquivos estáticos e a API deste formulário usam /_diagnostico para evitar conflitos. O endereço entendo-seu-desafio.vercel.app continua como origem técnica dessas rotas.
 

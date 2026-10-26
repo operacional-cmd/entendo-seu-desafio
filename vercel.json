@@ -7,8 +7,13 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/entendo-o-seu-desafio",
+      "destination": "/entendendo-seu-desafio",
       "permanent": false
+    },
+    {
+      "source": "/entendo-o-seu-desafio",
+      "destination": "/entendendo-seu-desafio",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -27,6 +32,10 @@
     {
       "source": "/painel",
       "destination": "/painel.html"
+    },
+    {
+      "source": "/entendendo-seu-desafio",
+      "destination": "/index.html"
     }
   ],
   "regions": [
