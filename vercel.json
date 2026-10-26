@@ -13,6 +13,14 @@
   ],
   "rewrites": [
     {
+      "source": "/_diagnostico/api/server",
+      "destination": "/api/server"
+    },
+    {
+      "source": "/_diagnostico/:file(logo.png|form.js|painel.js|painel.css)",
+      "destination": "/:file"
+    },
+    {
       "source": "/entendo-o-seu-desafio",
       "destination": "/index.html"
     },

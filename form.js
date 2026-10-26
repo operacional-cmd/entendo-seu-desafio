@@ -77,7 +77,7 @@ if(!attempt||attempt.fingerprint!==fingerprint)attempt={fingerprint,submissionId
 const submitButton=document.getElementById('next'),previous=document.getElementById('previous'),sendError=document.getElementById('send-error');
 sending=true;submitButton.disabled=true;previous.disabled=true;submitButton.textContent='Enviando…';sendError.hidden=true;
 try{
-const response=await fetch('/api/server?action=submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...payload,submissionId:attempt.submissionId,submissionAt:attempt.submissionAt})});
+const response=await fetch('/_diagnostico/api/server?action=submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...payload,submissionId:attempt.submissionId,submissionAt:attempt.submissionAt})});
 const result=await response.json().catch(()=>({}));
 if(!response.ok)throw new Error(result.error||'Não foi possível enviar agora. Tente novamente.');
 }catch(error){sendError.textContent=error.message||'Confira sua conexão e tente novamente.';sendError.hidden=false;return;}

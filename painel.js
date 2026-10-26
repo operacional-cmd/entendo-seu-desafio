@@ -11,7 +11,7 @@
     $('dashboard').hidden=true;$('login-view').hidden=false;
   }
   async function api(action, {method='GET',data,signal}={}) {
-    const url=new URL('/api/server',location.origin);url.searchParams.set('action',action);
+    const url=new URL('/_diagnostico/api/server',location.origin);url.searchParams.set('action',action);
     if(action==='responses'&&data?.cursor)url.searchParams.set('cursor',data.cursor);
     const options={method,credentials:'same-origin',cache:'no-store',signal,headers:{}};
     if(method!=='GET'){options.headers={'Content-Type':'application/json','X-CSRF-Token':csrf};options.body=JSON.stringify(data||{});}

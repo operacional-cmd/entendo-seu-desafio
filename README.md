@@ -4,7 +4,7 @@ Formulário público com recebimento de respostas e painel privado da equipe.
 
 - Formulário: `/entendo-o-seu-desafio`
 - Painel: `/painel`
-- API: `/api/server?action=…`
+- API: `/_diagnostico/api/server?action=…`
 
 ## Executar verificações
 
@@ -25,3 +25,8 @@ O formulário valida os dados no cliente e no servidor e só confirma o envio de
 O painel exige login para consultar respostas, alterar status, adicionar anotações ou excluir registros. Atualizações usam ETag para evitar sobrescrever mudanças simultâneas; operações de escrita exigem origem válida e token CSRF. Tentativas de login e envios têm limites persistentes por janela de 15 minutos. Falhas do armazenamento não liberam o acesso.
 
 Não há respostas anteriores à ativação do recebimento: a versão inicial era uma prévia sem persistência.
+
+## Domínio oficial
+
+O formulário é servido em https://www.leanoptimus.com.br/entendo-o-seu-desafio e o painel em https://www.leanoptimus.com.br/painel. O projeto principal leanoptimus-site encaminha apenas essas rotas e /_diagnostico/* para este projeto. A página inicial e a API de contato do site principal continuam no projeto original. Os arquivos estáticos e a API deste formulário usam /_diagnostico para evitar conflitos. O endereço entendo-seu-desafio.vercel.app continua como origem técnica dessas rotas.
+
